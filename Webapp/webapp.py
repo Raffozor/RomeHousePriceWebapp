@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 import numpy as np
+from functions import organize_data_collected
 
 st.title("Rome House Prices Prediction Project")
 # st.header("Calculate the estimated price of house in Rome using an XGBoost machine learning model")
@@ -83,54 +84,6 @@ condition = st.selectbox(label="Structural condition of the house:",
                                   "Excellent/Renovated - Ottimo/Ristrutturato", "Other conditions"])
 st.write('Selected condition ', condition)
 
-y_n_dict = {"Yes": 1, "No": 0}
-
-df = pd.DataFrame([[0, 0, 0, 0, 0]], columns=['Balcony', 'Terrace', 'Cellar', 'Swimming-pool', 'Garden'])
-
-for col in df:
-    if col in features:
-        df[col] = 1
-    else:
-        df[col] = 0
-
-df_rooms = pd.DataFrame([[0, 0, 0, 0, 0]], columns=["1", "2", "3", "4", "5"])
-
-for col in df_rooms:
-    if col == rooms:
-        df_rooms[col] = 1
-    else:
-        df_rooms[col] = 0
-
-df_bathrooms = pd.DataFrame([[0, 0, 0]], columns=["1", "2", "3"])
-
-for col in df_bathrooms:
-    if col == bathrooms:
-        df_bathrooms[col] = 1
-    else:
-        df_bathrooms[col] = 0
-
-data = pd.DataFrame([[st.session_state.coordinates[1],
-                      st.session_state.coordinates[2],
-                      year,
-                      surface,
-                      floor,
-                      y_n_dict[new],
-                      y_n_dict[luxury],
-                      df["Balcony"][0],
-                      df["Terrace"][0],
-                      df["Cellar"][0],
-                      df["Swimming-pool"][0],
-                      df["Garden"][0],
-                      df_rooms["1"][0],
-                      df_rooms["2"][0],
-                      df_rooms["3"][0],
-                      df_rooms["4"][0],
-                      df_rooms["5"][0],
-                      df_bathrooms["1"][0],
-                      df_bathrooms["2"][0],
-                      df_bathrooms["3"][0]]],
-                    columns=["lat", "lon", "year", "surface", "floor", "new", "luxury", "balcony", "Terrace", "Cellar",
-                             "Swimming-pool", "Garden", "room1", "room2", "room3", "room4", "room5",
-                             "bathroom1", "bathroom2", "bathroom3"])
-st.write(data.head())
-# st.write(type(features))
+test = organize_data_collected(st.session_state.coordinates[1], st.session_state.coordinates[2], year, surface, floor,
+                               new, luxury, features, rooms, bathrooms, garage, typology, condition)
+st.write(test)
