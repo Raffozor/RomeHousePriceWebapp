@@ -3,10 +3,10 @@ import requests
 import pandas as pd
 import numpy as np
 from functions import organize_data_collected, scaling_values, price_prediction
-import os
+
 st.set_page_config(
     page_title="Raffo's WebApp",
-    page_icon="🏘️"
+    page_icon="🤖"
 )
 
 st.title("Rome House Prices Prediction")
