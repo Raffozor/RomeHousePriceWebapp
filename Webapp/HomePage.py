@@ -5,8 +5,8 @@ import numpy as np
 from functions import organize_data_collected, scaling_values, price_prediction
 
 st.set_page_config(
-    page_title="Raffo's WebApp",
-    page_icon="🤖"
+    page_title="Raffaello's WebApp",
+    page_icon="🏙️"
 )
 
 st.title("Rome House Prices Prediction")

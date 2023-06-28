@@ -1,10 +1,10 @@
 import streamlit as st
 from PIL import Image
 
-image = Image.open('foto.jpeg')
+image = Image.open('foto.jpg')
 st.set_page_config(
-    page_title="Raffo's WebApp",
-    page_icon="🤖"
+    page_title="About Me",
+    page_icon="👨‍💼"
 )
 
 col1, col2, col3 = st.columns(3)
@@ -17,13 +17,14 @@ with col2:
 
 with col3:
     st.write(' ')
-st.header("Raffaello Cesetti")
+st.header("About me")
 st.markdown("Hi! My name is Raffaello Cesetti and I am a CESMA Master's student specializing in Data Science. "
             "During an internship experience in Lisbon, I discovered my passion for Data Science, working with Python "
             "to help the business migrate from data analysis on Excel to Python.")
-st.markdown("During that time, I met some guys "
-            "studying Data Science and have had the goal of becoming a Data Scientist ever since. I am fascinated by "
-            "Python and its endless libraries, which have become my tool of choice for Data Science.")
+st.markdown("During that time, I became friend with some students "
+            "in Data Science and I was captivated by their field of study and have had the goal of becoming a Data "
+            "Scientist ever since. I am fascinated by"
+            " Python and its endless libraries, which have become my tool of choice for Data Science.")
 st.markdown("I appreciate the "
             "flexibility, simplicity,and versatility of Python, which allow me to work on every phase of a Data Science"
             " project. I can collect data through web scraping and get as far as putting machine learning models into "

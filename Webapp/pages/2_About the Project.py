@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
 st.set_page_config(
-    page_title="Raffo's WebApp",
-    page_icon="🤖"
+    page_title="The Project",
+    page_icon="🏗️"
 )
 st.header("The project explained")
 st.markdown("The objective of this project was to apply the knowledge acquired during the Master CESMA by developing "
